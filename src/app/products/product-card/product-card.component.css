@@ -1,0 +1,4 @@
+.card-img-overlay {
+    background-color: transparent;
+    pointer-events: none;
+  }

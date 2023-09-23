@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { GuardsComponent } from './guards/guards.component';
 import { RouterModule } from '@angular/router';
 
 
@@ -13,7 +12,6 @@ import { RouterModule } from '@angular/router';
     NavbarComponent,
     FooterComponent,
     NotFoundComponent,
-    GuardsComponent
   ],
   imports: [
     CommonModule,RouterModule

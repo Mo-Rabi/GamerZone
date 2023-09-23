@@ -14,6 +14,11 @@ import { AccountVerificationComponent } from './account-verification/account-ver
   ],
   imports: [
     CommonModule
+  ],
+  exports:[
+    LoginComponent,
+    AccountVerificationComponent,
+    PasswordResetComponent,
   ]
 })
 export class AuthenticationModule { }

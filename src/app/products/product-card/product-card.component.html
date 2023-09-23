@@ -1,21 +1,37 @@
-        <div class="card shadow">
-            <img src="https://i.dummyjson.com/data/products/1/thumbnail.jpg" alt="black watch"> 
-            <div class="card-footer border-top border-gray-300 p-4">
-                <a href="#" class="h5">Apple Watch Series 3</a>
-                <h3 class="h6 fw-light text-gray mt-2">Space Gray Aluminum Case with Black Sport Band</h3>
-                <div class="d-flex mt-3">
-                    <span class="star fas fa-star text-warning me-1"></span> 
-                    <span class="star fas fa-star text-warning me-1"></span> 
-                    <span class="star fas fa-star text-warning me-1"></span> 
-                    <span class="star fas fa-star text-warning me-1"></span> 
-                    <span class="star fas fa-star text-warning"></span> 
-                    <span class="badge bg-primary ms-2">4.7</span>
-                </div>
-                <div class="d-flex justify-content-between align-items-center mt-3">
-                    <span class="h5 mb-0 text-gray">$299.00</span> 
-                    <a class="btn btn-xs btn-tertiary" href="#">
-                        <span class="fas fa-cart-plus me-2"></span> Add to cart
-                    </a>
-                </div>
-            </div>
-        </div> 
+<div class="card shadow">
+  <img
+    [src]="product.thumbnail"
+    height="300"
+    [alt]="product.title"
+    class="btn"
+    (click)="redirectToProductDetails(product.id)"
+  />
+  <div class="card-img-overlay">
+    <p
+      class="card-text rounded rounded-pill d-inline-block px-2"
+      [ngStyle]="{ 'background-color': product.stock > 0 ? 'green' : 'red' }"
+    >
+      {{ product.stock > 0 ? "in stock" : "out of stock" }}
+    </p>
+  </div>
+
+  <div class="card-footer border-top border-gray-300 p-3">
+    <a class="btn fs-6" (click)="redirectToProductDetails(product.id)">{{
+      product.title
+    }}</a>
+    <div class="d-flex mt-3">
+      <span class="star fas fa-star text-warning me-1"></span>
+      <span class="star fas fa-star text-warning me-1"></span>
+      <span class="star fas fa-star text-warning me-1"></span>
+      <span class="star fas fa-star text-warning me-1"></span>
+      <span class="star fas fa-star text-warning"></span>
+      <span class="badge bg-primary ms-2">{{ product.rating }}</span>
+    </div>
+    <div class="d-flex justify-content-between align-items-center mt-3">
+      <span class="h5 mb-0 text-back">${{ product.price }}</span>
+      <a class="btn btn-warning" href="#">
+        <i class="fa fa-cart-plus me-2"></i> Add to cart
+      </a>
+    </div>
+  </div>
+</div>

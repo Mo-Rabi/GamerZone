@@ -3,6 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProductsComponent } from './products/products/products.component';
 import { ProductDetailsComponent } from './products/product-details/product-details.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
+import { authGuard } from './guards/auth.guard';
+import { PointsComponent } from './products/points/points.component';
+import { LoginComponent } from './authentication/login/login.component';
+import { AddProductComponent } from './products/add-product/add-product.component';
 
 const routes: Routes = [
   {
@@ -12,15 +16,38 @@ const routes: Routes = [
   {
     path: 'products',
     component: ProductsComponent,
+    children:[
+  
+    ]
   },
   {
-    path: 'products/:id',
+    path:'products/add',
+    component:AddProductComponent
+  },
+  {
+    path: 'product/:id',
     component: ProductDetailsComponent,
   },
+  {
+    path: 'points',
+    component:PointsComponent,
+    canActivate:[authGuard]
+  },
+  {
+    path:'login',
+    component:LoginComponent
+  },
+
+  // {
+  //   path: 'cart',
+  //   component:CartComp,
+  //   canActivate:[authGuard]
+  // },
   {
     path: '**',
     component: NotFoundComponent,
   },
+ 
 ];
 
 @NgModule({

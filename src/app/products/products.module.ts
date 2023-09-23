@@ -3,6 +3,10 @@ import { CommonModule } from '@angular/common';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { PointsComponent } from './points/points.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { FormsModule } from '@angular/forms';
+
 
 
 
@@ -10,10 +14,20 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
   declarations: [
     ProductCardComponent,
     ProductsComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    PointsComponent,
+    AddProductComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
+  ],
+  exports:[
+    ProductCardComponent,
+    ProductsComponent,
+    ProductDetailsComponent,
+    PointsComponent,
+    AddProductComponent
   ]
 })
 export class ProductsModule { }
