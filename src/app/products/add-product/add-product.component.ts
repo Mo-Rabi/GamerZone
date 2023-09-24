@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./add-product.component.css']
 })
 export class AddProductComponent {
-
+  formSubmitted = false
+  handleFormSubmit(form:any){
+    console.log(form);
+    this.formSubmitted = true;
+  }
 }

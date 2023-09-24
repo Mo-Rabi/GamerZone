@@ -1,13 +1,49 @@
-<form #newProduct="ngForm" class="d-grid gap-3 mt-5 mb-5 justify-content-center">
+<!--! Template deiven forms -->
+  <img
+  *ngIf="formSubmitted"
+  src="https://img.freepik.com/free-photo/3d-render-paper-clipboard-with-green-tick_107791-15840.jpg?w=996&t=st=1695506866~exp=1695507466~hmac=69952beebd2a831d6cd4d7cabed0d853badd20684e87eac2fa00187e1b7e302a"
+  alt="Form Submitted"
+  class="rounded w-50  fadeIn"
+  style="position: absolute; left: 25%;"
+/>
+
+
+<form
+  #newProductForm="ngForm"
+  (ngSubmit)="handleFormSubmit(newProductForm)"
+  class="d-grid gap-3 mt-5 mb-5 justify-content-center"
+  [ngClass]="{ bounceOutUp: formSubmitted }"
+>
   <div class="form-floating">
     <input
       type="text"
       class="form-control"
       id="floatingName"
       placeholder="Clould stinger wireless"
+      name="ProductName"
+      #ProductName="ngModel"
+      ngModel
       required
+      minlength="3"
+      [ngStyle]="{
+        'border-color': ProductName.touched && ProductName.invalid ? 'red' : ''
+      }"
     />
     <label for="floatingName" class="text-muted">Product name</label>
+    <div
+      id="ProductNameHelp"
+      class="form-text text-danger"
+      *ngIf="ProductName.touched && ProductName.invalid"
+    >
+      <span *ngIf="ProductName.errors?.['required']">
+        <i class="fa-regular fa-circle-xmark" style="color: #ff0000"></i> This
+        field is required
+      </span>
+      <span *ngIf="ProductName.errors?.['minlength']">
+        <i class="fa-regular fa-circle-xmark" style="color: #ff0000"></i>
+        Minimum length is 3 characters
+      </span>
+    </div>
   </div>
 
   <div class="form-floating">
@@ -16,9 +52,35 @@
       class="form-control"
       id="floatingBrand"
       placeholder="Brand"
+      name="brand"
+      ngModel
+      #brand="ngModel"
       required
+      minlength="3"
+      maxlength="50"
+      [ngStyle]="{
+        'border-color': brand.touched && brand.invalid ? 'red' : ''
+      }"
     />
     <label for="floatingBrand" class="text-muted">Brand</label>
+    <div
+      id="brandHelp"
+      class="form-text text-danger"
+      *ngIf="brand.touched && brand.invalid"
+    >
+      <span *ngIf="brand.errors?.['required']">
+        <i class="fa-regular fa-circle-xmark" style="color: #ff0000"></i> This
+        field is required
+      </span>
+      <span *ngIf="brand.errors?.['minlength']">
+        <i class="fa-regular fa-circle-xmark" style="color: #ff0000"></i>
+        Minimum length is 3 characters
+      </span>
+      <span *ngIf="brand.errors?.['maxlength']">
+        <i class="fa-regular fa-circle-xmark" style="color: #ff0000"></i>
+        Maximum length is 50 characters
+      </span>
+    </div>
   </div>
 
   <div class="form-floating">
@@ -27,9 +89,30 @@
       class="form-control"
       id="floatingCategory"
       placeholder="Category"
+      name="category"
+      ngModel
+      #category="ngModel"
+      minlength="3"
       required
+      [ngStyle]="{
+        'border-color': category.touched && category.invalid ? 'red' : ''
+      }"
     />
     <label for="floatingCategory" class="text-muted">Category</label>
+    <div
+      id="categoryHelp"
+      class="form-text text-danger"
+      *ngIf="category.touched && category.invalid"
+    >
+      <span *ngIf="category.errors?.['required']">
+        <i class="fa-regular fa-circle-xmark" style="color: #ff0000"></i> This
+        field is required
+      </span>
+      <span *ngIf="category.errors?.['minlength']">
+        <i class="fa-regular fa-circle-xmark" style="color: #ff0000"></i>
+        Minimum length is 3 characters
+      </span>
+    </div>
   </div>
 
   <div class="form-floating">
@@ -38,9 +121,30 @@
       class="form-control"
       id="floatingPrice"
       placeholder="Price"
+      name="price"
+      ngModel
+      #price="ngModel"
+      min="1"
       required
+      [ngStyle]="{
+        'border-color': price.touched && price.invalid ? 'red' : ''
+      }"
     />
     <label for="floatingPrice" class="text-muted">Price</label>
+    <div
+      id="priceHelp"
+      class="form-text text-danger"
+      *ngIf="price.touched && price.invalid"
+    >
+      <span *ngIf="price.errors?.['required']">
+        <i class="fa-regular fa-circle-xmark" style="color: #ff0000"></i> This
+        field is required
+      </span>
+      <span *ngIf="price.errors?.['min']">
+        <i class="fa-regular fa-circle-xmark" style="color: #ff0000"></i> Only
+        positive numbers allowed
+      </span>
+    </div>
   </div>
 
   <div class="form-floating">
@@ -49,10 +153,61 @@
       class="form-control"
       id="floatingStock"
       placeholder="Stock"
+      name="stock"
+      ngModel
+      #stock="ngModel"
+      min="1"
       required
+      [ngStyle]="{
+        'border-color': stock.touched && stock.invalid ? 'red' : ''
+      }"
     />
     <label for="floatingStock" class="text-muted">Stock</label>
+    <div
+      id="stockHelp"
+      class="form-text text-danger"
+      *ngIf="stock.touched && stock.invalid"
+    >
+      <span *ngIf="stock.errors?.['required']">
+        <i class="fa-regular fa-circle-xmark" style="color: #ff0000"></i> This
+        field is required
+      </span>
+      <span *ngIf="stock.errors?.['min']">
+        <i class="fa-regular fa-circle-xmark" style="color: #ff0000"></i> Only
+        positive numbers allowed
+      </span>
+    </div>
   </div>
 
-  <button type="submit" class="btn btn-outline-warning">Add product</button>
+  <button
+    type="submit"
+    class="btn btn-outline-warning"
+    [disabled]="newProductForm.invalid"
+  >
+    Add product
+  </button>
 </form>
+
+<!--? Toast -->
+<!-- Flexbox container for aligning the toasts -->
+<!-- <div
+  aria-live="polite"
+  aria-atomic="true"
+  class="d-flex justify-content-center align-items-center w-100"
+> -->
+  <!-- Then put toasts within -->
+  <!-- <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <img src="..." class="rounded me-2" alt="..." />
+      <strong class="me-auto">GamerZone</strong>
+      <small>11 mins ago</small>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="toast"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="toast-body">Your product was added successfully.</div>
+  </div>
+</div> -->

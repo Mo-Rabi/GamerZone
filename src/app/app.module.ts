@@ -7,6 +7,7 @@ import { NgbDropdownModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from './shared/shared.module';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { ProductsModule } from './products/products.module';
+import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ProductsModule } from './products/products.module';
     AuthenticationModule,
     ProductsModule,
     NgbDropdownModule,
+    UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]

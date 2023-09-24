@@ -33,7 +33,7 @@
             class="nav-link"
             routerLink="/"
             routerLinkActive="text-danger"
-            [routerLinkActiveOptions]="{exact : true}"
+            [routerLinkActiveOptions]="{ exact: true }"
             >Home</a
           >
         </li>
@@ -42,7 +42,7 @@
             class="nav-link"
             routerLink="/products"
             routerLinkActive="text-danger"
-            [routerLinkActiveOptions]="{exact : true}"
+            [routerLinkActiveOptions]="{ exact: true }"
             >Products</a
           >
         </li>
@@ -51,8 +51,7 @@
             class="nav-link"
             routerLink="/products/add"
             routerLinkActive="text-danger"
-            [routerLinkActiveOptions]="{exact : true}"
-
+            [routerLinkActiveOptions]="{ exact: true }"
             >Add product</a
           >
         </li>
@@ -72,7 +71,28 @@
     <!-- Right elements -->
     <div class="d-flex align-items-center">
       <!-- Icon -->
-      <a class="text-reset me-3" href="#">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a
+            class="nav-link me-3"
+            routerLink="/signup"
+            routerLinkActive="text-danger"
+          >
+            Signup
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link me-3"
+            routerLink="/login"
+            routerLinkActive="text-danger"
+          >
+            Login
+          </a>
+        </li>
+      </ul>
+
+      <a class="text-reset me-3" routerLink="/cart">
         <i class="fa fa-cart-shopping"></i>
       </a>
 

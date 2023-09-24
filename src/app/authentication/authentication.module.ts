@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { AccountVerificationComponent } from './account-verification/account-verification.component';
+import { SignupComponent } from './signup/signup.component';
+//import { FormsModule } from '@angular/forms'; used for template driven
+import { ReactiveFormsModule } from '@angular/forms'; //used for reactive forms
 
 
 
@@ -10,15 +13,17 @@ import { AccountVerificationComponent } from './account-verification/account-ver
   declarations: [
     LoginComponent,
     PasswordResetComponent,
-    AccountVerificationComponent
+    AccountVerificationComponent,
+    SignupComponent
   ],
   imports: [
-    CommonModule
+    CommonModule, ReactiveFormsModule
   ],
   exports:[
     LoginComponent,
     AccountVerificationComponent,
     PasswordResetComponent,
+    SignupComponent
   ]
 })
 export class AuthenticationModule { }
