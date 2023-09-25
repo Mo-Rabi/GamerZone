@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import productsJson from '../../../../products-list.json'
-import {Product} from '../interface/product'
+import { ProductsService } from '../services/products.service';
 
 @Component({
   selector: 'app-products',
@@ -8,6 +7,12 @@ import {Product} from '../interface/product'
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent {
-  products: Array<Product> = productsJson
+  products:any
+  constructor (private productsService:ProductsService){}
+
+  ngOnInit(){
+    this.productsService.getProductsList().subscribe(data => {this.products = data;  console.log(this.products)})
+   
+  }
 
 }
