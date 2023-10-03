@@ -12,9 +12,9 @@ import { SignupComponent } from './authentication/signup/signup.component';
 
 const routes: Routes = [
   {path: '',component: ProductsComponent,},
-  {path: 'products',component: ProductsComponent,// children:[//   {//     path:'products/add',//     component:AddProductComponent//   }// ]
+  {path: 'products', children:[{path:'', component:ProductsComponent}, {path:'add', component:AddProductComponent }]
   },
-  {path:'products/add',component:AddProductComponent},
+  //{path:'products/add',component:AddProductComponent},
   { path: 'product/:id',component: ProductDetailsComponent,},
   {path: 'points',component:PointsComponent,canActivate:[authGuard]},
   {path:'login',component:LoginComponent},

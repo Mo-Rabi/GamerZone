@@ -1,14 +1,16 @@
 export interface Product {
-    "id": number,
-    "title": string,
-    "description": string,
-    "price": number,
-    "discountPercentage": number,
-    "rating": number,
-    "stock": number,
-    "brand": string,
-    "category": string,
-    "thumbnail": string,
-    "images": string[],
-    "createdAt":string
-}
+    id: string;
+    title: string;
+    description: string;
+    genre: string;
+    released: string;
+    ageRating: string;
+    price: number;
+    discountedPrice: number;
+    onSale: boolean;
+    image: string;
+    tags: string[];
+    favorite: boolean;
+    quantity?:any
+  }
+  

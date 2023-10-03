@@ -20,7 +20,7 @@ import { UserModule } from './user/user.module';
     NgbModule,
     SharedModule,
     AuthenticationModule,
-    ProductsModule,
+//    ProductsModule,
     NgbDropdownModule,
     UserModule
   ],

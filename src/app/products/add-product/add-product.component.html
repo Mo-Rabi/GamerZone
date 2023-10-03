@@ -1,11 +1,12 @@
 <!--! Template deiven forms -->
   <img
   *ngIf="formSubmitted"
-  src="https://img.freepik.com/free-photo/3d-render-paper-clipboard-with-green-tick_107791-15840.jpg?w=996&t=st=1695506866~exp=1695507466~hmac=69952beebd2a831d6cd4d7cabed0d853badd20684e87eac2fa00187e1b7e302a"
+  src="../../../assets/paper-clipboard-with-green-tick.png"
   alt="Form Submitted"
-  class="rounded w-50  fadeIn"
-  style="position: absolute; left: 25%;"
+  class="rounded fadeIn"
+  style="position: absolute; left: 42%; top: 23%; width: 15%;"
 />
+
 
 
 <form
@@ -181,7 +182,7 @@
 
   <button
     type="submit"
-    class="btn btn-outline-warning"
+    class="btn btn-warning"
     [disabled]="newProductForm.invalid"
   >
     Add product

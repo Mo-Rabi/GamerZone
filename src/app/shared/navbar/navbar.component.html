@@ -1,5 +1,5 @@
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
   <!-- Container wrapper -->
   <div class="container-fluid">
     <!-- Toggle button -->
@@ -69,6 +69,20 @@
     <!-- Collapsible wrapper -->
 
     <!-- Right elements -->
+    <!--! Search input field -->
+    <div class="me-3 d-flex justify-content-center position-relative">
+      <i
+        class="fa fa-search text-danger position-absolute"
+        style="top: 30%; left: 85%"
+      ></i>
+      <input
+        type="text"
+        class="form-control bg-dark text-white border-0 border-bottom"
+        placeholder="Search"
+        (input)="onSearchInput($event)"
+      />
+    </div>
+
     <div class="d-flex align-items-center">
       <!-- Icon -->
       <ul class="navbar-nav">
@@ -94,6 +108,10 @@
 
       <a class="text-reset me-3" routerLink="/cart">
         <i class="fa fa-cart-shopping"></i>
+        <span
+          class="position-absolute top-40 translate-middle badge rounded-pill bg-danger"
+          ><small>{{ cartItemsNum }}</small></span
+        >
       </a>
 
       <!-- Notifications -->
@@ -107,14 +125,17 @@
           aria-expanded="false"
         >
           <i class="fa fa-bell"></i>
-          <span class="badge rounded-pill badge-notification bg-danger">1</span>
+          <span
+            class="position-absolute top-40 translate-middle badge rounded-pill bg-danger"
+            ><small>2</small></span
+          >
         </a>
         <ul
           class="dropdown-menu dropdown-menu-end"
           aria-labelledby="navbarDropdownMenuLink"
         >
           <li>
-            <a class="dropdown-item" href="#">Some news</a>
+            <a class="dropdown-item text" href="#">Some news</a>
           </li>
           <li>
             <a class="dropdown-item" href="#">Another news</a>

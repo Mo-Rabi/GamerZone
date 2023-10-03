@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {Product} from '../interface/product'
-import productJson from '../../../../products-list.json'
+import { ProductsService } from '../services/products.service';
+import { CartCounterService } from 'src/app/user/services/cart-counter.service';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -12,15 +14,48 @@ import productJson from '../../../../products-list.json'
 export class ProductDetailsComponent {
 
   activeId:string = ''
-  products:Product[] =productJson;
-  selectedProduct !: Product
+  //products:any =
+  selectedProduct !:any
+  cartItemsNum!:number
+  cartItems: Product[] = []
 
-  constructor(private activeRoute: ActivatedRoute){} //sevices
+  constructor(
+    private activeRoute: ActivatedRoute,
+    private productsService: ProductsService,
+    private router: Router,
+    private cartCounterService: CartCounterService
+
+    ){} //sevices
 
   ngOnInit(){
     this.activeId = this.activeRoute.snapshot.params['id']
-    this.selectedProduct = this.products.find((product) => product.id === parseInt(this.activeId)) || {} as Product; 
-    console.log(this.selectedProduct);
-    }
-  
+    this.productsService
+    .getProductsDetails(this.activeId).subscribe(
+      (data) =>this.selectedProduct = data,
+      (error)=>{
+      console.log(error);
+      if(error.status != 'OK'){
+        this.router.navigate(['/'])
+      }
+      
+    });
+
+    //cart counter service
+    this.cartCounterService.getCounterVal().subscribe((val) =>this.cartItemsNum = val)
+  }
+
+
+  //!Add product's details to the cart page && update total number of items in cart
+addToCart() {
+  //? Add Product to cart page
+  this.cartCounterService.addToCart(this.selectedProduct);
+
+  //? increment cart icon that holds the total number of products
+  this.cartCounterService.setCounterVal(++this.cartItemsNum)
 }
+
+
+  
+
+
+  }
