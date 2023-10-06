@@ -19,7 +19,7 @@ export class ProductsComponent {
     this.productsService.getProductsList().subscribe(data => {
       this.products = data as any[];
       this.filteredProducts = this.products;
-      console.log(this.products)})
+      console.log( "This. products in products.ts" + this.products)})
 
       this.searchService.searchObservable.subscribe(searchTerm => {
         this.searchProducts(searchTerm);

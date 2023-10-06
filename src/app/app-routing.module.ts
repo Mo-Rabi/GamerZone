@@ -10,12 +10,14 @@ import { AddProductComponent } from './products/add-product/add-product.componen
 import { CartComponent } from './user/cart/cart.component';
 import { SignupComponent } from './authentication/signup/signup.component';
 
+
 const routes: Routes = [
   {path: '',component: ProductsComponent,},
   {path: 'products', children:[{path:'', component:ProductsComponent}, {path:'add', component:AddProductComponent }]
   },
+  //{path:'customAPIProducts', component:CustomAPIProductsComponent},
   //{path:'products/add',component:AddProductComponent},
-  { path: 'product/:id',component: ProductDetailsComponent,},
+  { path: 'product/details/:id',component: ProductDetailsComponent,},
   {path: 'points',component:PointsComponent,canActivate:[authGuard]},
   {path:'login',component:LoginComponent},
   { path: 'signup', component: SignupComponent },

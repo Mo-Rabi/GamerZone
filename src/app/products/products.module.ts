@@ -7,6 +7,8 @@ import { PointsComponent } from './points/points.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 
@@ -17,12 +19,13 @@ import { SharedModule } from '../shared/shared.module';
     ProductsComponent,
     ProductDetailsComponent,
     PointsComponent,
-    AddProductComponent
+    AddProductComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    NgbCarouselModule
   ],
   exports:[
     ProductCardComponent,

@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ProductDetailsComponent {
 
-  activeId:string = ''
+  activeId!:any
   //products:any =
   selectedProduct !:any
   cartItemsNum!:number
@@ -29,12 +29,12 @@ export class ProductDetailsComponent {
 
   ngOnInit(){
     this.activeId = this.activeRoute.snapshot.params['id']
-    this.productsService
-    .getProductsDetails(this.activeId).subscribe(
+    this.productsService.getProductsDetails(this.activeId).subscribe(
       (data) =>this.selectedProduct = data,
       (error)=>{
       console.log(error);
       if(error.status != 'OK'){
+        console.log(error);
         this.router.navigate(['/'])
       }
       
@@ -49,13 +49,7 @@ export class ProductDetailsComponent {
 addToCart() {
   //? Add Product to cart page
   this.cartCounterService.addToCart(this.selectedProduct);
-
   //? increment cart icon that holds the total number of products
   this.cartCounterService.setCounterVal(++this.cartItemsNum)
 }
-
-
-  
-
-
   }

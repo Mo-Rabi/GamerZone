@@ -8,3 +8,15 @@
     box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
     transition-duration: 0.4s;
 }
+
+/* Vertical Zoom-n-pan Container */
+.img-hover-zoom--zoom-n-pan-v img {
+  transition: transform .5s ease-in-out;
+  transform: scale(1);
+  transform-origin:  center center;
+}
+
+/* The Transformation */
+.img-hover-zoom--zoom-n-pan-v:hover img {
+  transform: scale(1.4)
+}

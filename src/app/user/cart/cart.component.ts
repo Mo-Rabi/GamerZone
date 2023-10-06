@@ -22,8 +22,6 @@ export class CartComponent {
   ngOnInit(){
     this.cartCounterService.getCounterVal().subscribe((val) =>this.cartItemsNum = val)
     this.cartCounterService.getCart().subscribe((cart) => {this.cartItems = cart;});
-    
-
   }
 
   addToCart(item:Product) {

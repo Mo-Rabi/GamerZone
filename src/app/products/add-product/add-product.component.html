@@ -1,13 +1,11 @@
 <!--! Template deiven forms -->
-  <img
+<img
   *ngIf="formSubmitted"
   src="../../../assets/paper-clipboard-with-green-tick.png"
   alt="Form Submitted"
   class="rounded fadeIn"
-  style="position: absolute; left: 42%; top: 23%; width: 15%;"
+  style="position: absolute; left: 42%; top: 23%; width: 15%"
 />
-
-
 
 <form
   #newProductForm="ngForm"
@@ -147,6 +145,39 @@
       </span>
     </div>
   </div>
+  <div class="form-floating">
+    <input
+      type="number"
+      class="form-control"
+      id="floatingDiscount"
+      placeholder="Discount Percentage"
+      name="discountPercentage"
+      ngModel
+      #discountPercentage="ngModel"
+      min="0"
+      max="100"
+      required=""
+      [ngStyle]="{
+        'border-color': discountPercentage.touched && discountPercentage.invalid ? 'red' : ''
+      }"
+    />
+    <label for="floatingDiscount" class="text-muted">Discount Percentage</label>
+    <div
+      id="discountPercentageHelp"
+      class="form-text text-danger"
+      *ngIf="discountPercentage.touched && discountPercentage.invalid"
+    >
+      <span *ngIf="discountPercentage.errors?.['required']">
+        <i class="fa-regular fa-circle-xmark" style="color: #ff0000"></i> This field is required
+      </span>
+      <span *ngIf="discountPercentage.errors?.['min']">
+        <i class="fa-regular fa-circle-xmark" style="color: #ff0000"></i> Minimum discount is 0%
+      </span>
+      <span *ngIf="discountPercentage.errors?.['max']">
+        <i class="fa-regular fa-circle-xmark" style="color: #ff0000"></i> Maximum discount is 100%
+      </span>
+    </div>
+  </div>
 
   <div class="form-floating">
     <input
@@ -180,6 +211,95 @@
     </div>
   </div>
 
+  <!-- Your existing form fields... -->
+
+  <div class="form-floating">
+    <textarea
+      class="form-control"
+      id="floatingDescription"
+      placeholder="Description"
+      required
+      name="description"
+      ngModel
+      #description="ngModel"
+      [ngStyle]="{
+        'border-color': description.touched && description.invalid ? 'red' : ''
+      }"
+    ></textarea>
+    <label for="floatingDescription" class="text-muted">Description</label>
+    <div
+      id="descriptionHelp"
+      class="form-text text-danger"
+      *ngIf="description.touched && description.invalid"
+    >
+      <span *ngIf="description.errors?.['required']">
+        <i class="fa-regular fa-circle-xmark" style="color: #ff0000"></i> This
+        field is required
+      </span>
+      <!-- Add more validation messages as needed -->
+    </div>
+  </div>
+
+  <div class="form-floating">
+    <input
+      type="text"
+      class="form-control"
+      id="floatingThumbnail"
+      placeholder="Thumbnail URL"
+      required=""
+      name="thumbnail"
+      ngModel
+      #thumbnail="ngModel"
+      [ngStyle]="{
+        'border-color': thumbnail.touched && thumbnail.invalid ? 'red' : ''
+      }"
+    />
+    <label for="floatingThumbnail" class="text-muted">Thumbnail URL</label>
+    <div
+      id="thumbnailHelp"
+      class="form-text text-danger"
+      *ngIf="thumbnail.touched && thumbnail.invalid"
+    >
+      <span *ngIf="thumbnail.errors?.['required']">
+        <i class="fa-regular fa-circle-xmark" style="color: #ff0000"></i> This
+        field is required
+      </span>
+      <!-- Add more validation messages as needed -->
+    </div>
+  </div>
+
+  <div class="form-floating">
+    <textarea
+      class="form-control"
+      id="floatingImageUrls"
+      placeholder="Image URLs (comma-separated)"
+      cols="50"
+      name="imageUrls"
+      ngModel
+      #imageUrls="ngModel"
+      [ngStyle]="{
+        'border-color': imageUrls.touched && imageUrls.invalid ? 'red' : ''
+      }"
+    ></textarea>
+
+    <label for="floatingImageUrls" class="text-muted">Image URLs (comma-separated)</label>
+    <div
+      id="imageUrlsHelp"
+      class="form-text text-danger"
+      *ngIf="imageUrls.touched && imageUrls.invalid"
+    >
+      <span *ngIf="imageUrls.errors?.['required']">
+        <i class="fa-regular fa-circle-xmark" style="color: #ff0000"></i> This
+        field is required
+      </span>
+      <!-- Add more validation messages as needed -->
+    </div>
+  </div>
+
+  <!-- Repeat the above block for Image 2 to Image 5 -->
+
+  <!-- Your existing form fields... -->
+
   <button
     type="submit"
     class="btn btn-warning"
@@ -196,8 +316,8 @@
   aria-atomic="true"
   class="d-flex justify-content-center align-items-center w-100"
 > -->
-  <!-- Then put toasts within -->
-  <!-- <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+<!-- Then put toasts within -->
+<!-- <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="toast-header">
       <img src="..." class="rounded me-2" alt="..." />
       <strong class="me-auto">GamerZone</strong>

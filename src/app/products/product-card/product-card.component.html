@@ -1,11 +1,47 @@
 <div class="card shadow">
-  <img
-    [src]="product.image"
-    height="300"
+  <ngb-carousel style="height: 350px; overflow: hidden">
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper img-hover-zoom--zoom-n-pan-v" >
+        <img
+          [src]="product.thumbnail"
+          [alt]="product.title"
+          (click)="redirectToProductDetails(product._id)"
+          class="img-fluid"
+        />
+      </div>
+    </ng-template>
+
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper img-hover-zoom--zoom-n-pan-v">
+        <img
+          [src]="product.images[0]"
+          [alt]="product.title"
+          (click)="redirectToProductDetails(product._id)"
+          class="img-fluid"
+        />
+      </div>
+    </ng-template>
+
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper img-hover-zoom--zoom-n-pan-v">
+        <img
+          [src]="product.images[1]"
+          [alt]="product.title"
+          (click)="redirectToProductDetails(product._id)"
+          class="img-fluid"
+        />
+      </div>
+    </ng-template>
+  </ngb-carousel>
+
+  <!-- <img
+    [src]="product.thumbnail"
+    height="350"
     [alt]="product.title"
     class="btn"
-    (click)="redirectToProductDetails(product.id)"
-  />
+    (click)="redirectToProductDetails(product._id)"
+  /> -->
+
   <div class="card-img-overlay">
     <p
       class="card-text rounded rounded-pill d-inline-block px-2"
@@ -16,7 +52,7 @@
   </div>
 
   <div class="card-footer border-top border-gray-300 p-3">
-    <a class="btn fs-6" (click)="redirectToProductDetails(product.id)">{{
+    <a class="btn fs-6" (click)="redirectToProductDetails(product._id)">{{
       product.title
     }}</a>
     <div class="d-flex mt-3">
