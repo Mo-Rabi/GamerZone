@@ -19,11 +19,9 @@ export class AddProductComponent {
     const productData = {
       title: form.value.ProductName,
       description: form.value.description,
-      price: {
-        $numberDecimal: form.value.price.toString()
-      },
-      discountPercentage: 0,
-      rating: 5.0,
+      price: form.value.price,
+      discountPercentage: form.value.discountPercentage,
+      rating: 0.0,
       stock: form.value.stock,
       brand: form.value.brand,
       category: form.value.category,
