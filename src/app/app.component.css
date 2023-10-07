@@ -1,6 +1,4 @@
-
-  
-  ::ng-deep body {
+::ng-deep body {
       background: linear-gradient(-45deg, #ff3f3f, #38ffa2, #31adff, #ffa530);
       background-size: 400% 400%;
       animation: gradient 10s ease infinite;

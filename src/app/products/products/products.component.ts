@@ -11,19 +11,32 @@ import { SearchService } from '../services/search.service';
 export class ProductsComponent {
   products!: any[];
   filteredProducts: any;
+  loading: boolean = false; // Add loading property
 
 
   constructor (private productsService:ProductsService, private searchService: SearchService){}
 
-  ngOnInit(){
-    this.productsService.getProductsList().subscribe(data => {
-      this.products = data as any[];
-      this.filteredProducts = this.products;
-      console.log( "This. products in products.ts" + this.products)})
+  ngOnInit() {
+    this.loadProducts();
+    this.searchService.searchObservable.subscribe(searchTerm => {
+      this.searchProducts(searchTerm);
+    });
+  }
 
-      this.searchService.searchObservable.subscribe(searchTerm => {
-        this.searchProducts(searchTerm);
-      });
+  loadProducts() {
+    this.loading = true; // Show loader when loading starts
+
+    this.productsService.getProductsList().subscribe(
+      data => {
+        this.products = data as any[];
+        this.filteredProducts = this.products;
+        console.log("This. products in products.ts" + this.products);
+      },
+      error => console.error(error),
+      () => {
+        this.loading = false; // Hide loader when loading completes
+      }
+    );
   }
   
   onSearchInput(event: Event) {

@@ -4,7 +4,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RouterModule } from '@angular/router';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import {HttpClientModule} from '@angular/common/http'
   exports:[
     NavbarComponent,
     NotFoundComponent,
-    FooterComponent
+    FooterComponent,
   ]
 })
 export class SharedModule { }

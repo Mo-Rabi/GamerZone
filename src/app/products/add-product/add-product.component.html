@@ -6,6 +6,13 @@
   class="rounded fadeIn"
   style="position: absolute; left: 42%; top: 23%; width: 15%"
 />
+<h4
+  *ngIf="formSubmitted"
+  class="line-1 anim-typewriter"
+  style="position: absolute; left: 27%; top: 65%; width: 15%"
+>
+  Your product was added successfully :D
+</h4>
 
 <form
   #newProductForm="ngForm"
@@ -158,7 +165,8 @@
       max="100"
       required=""
       [ngStyle]="{
-        'border-color': discountPercentage.touched && discountPercentage.invalid ? 'red' : ''
+        'border-color':
+          discountPercentage.touched && discountPercentage.invalid ? 'red' : ''
       }"
     />
     <label for="floatingDiscount" class="text-muted">Discount Percentage</label>
@@ -168,13 +176,16 @@
       *ngIf="discountPercentage.touched && discountPercentage.invalid"
     >
       <span *ngIf="discountPercentage.errors?.['required']">
-        <i class="fa-regular fa-circle-xmark" style="color: #ff0000"></i> This field is required
+        <i class="fa-regular fa-circle-xmark" style="color: #ff0000"></i> This
+        field is required
       </span>
       <span *ngIf="discountPercentage.errors?.['min']">
-        <i class="fa-regular fa-circle-xmark" style="color: #ff0000"></i> Minimum discount is 0%
+        <i class="fa-regular fa-circle-xmark" style="color: #ff0000"></i>
+        Minimum discount is 0%
       </span>
       <span *ngIf="discountPercentage.errors?.['max']">
-        <i class="fa-regular fa-circle-xmark" style="color: #ff0000"></i> Maximum discount is 100%
+        <i class="fa-regular fa-circle-xmark" style="color: #ff0000"></i>
+        Maximum discount is 100%
       </span>
     </div>
   </div>
@@ -282,7 +293,9 @@
       }"
     ></textarea>
 
-    <label for="floatingImageUrls" class="text-muted">Image URLs (comma-separated)</label>
+    <label for="floatingImageUrls" class="text-muted"
+      >Image URLs (comma-separated)</label
+    >
     <div
       id="imageUrlsHelp"
       class="form-text text-danger"

@@ -1,6 +1,7 @@
 import { Component, Input} from '@angular/core';
 import { CartCounterService } from '../services/cart-counter.service';
 import { Product } from 'src/app/products/interface/product';
+import { ProductsService } from 'src/app/products/services/products.service';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { Product } from 'src/app/products/interface/product';
 })
 export class CartComponent {
   cartItemsNum = 0
-  constructor(private cartCounterService: CartCounterService){}
+  constructor(private cartCounterService: CartCounterService, private productsService: ProductsService){}
 
   cartItems: Product[] = []
   products!:any
@@ -21,7 +22,9 @@ export class CartComponent {
 
   ngOnInit(){
     this.cartCounterService.getCounterVal().subscribe((val) =>this.cartItemsNum = val)
-    this.cartCounterService.getCart().subscribe((cart) => {this.cartItems = cart;});
+    this.cartCounterService.getCart().subscribe((cart) => {this.cartItems = cart; console.log(this.cartItems);});
+    this.productsService.getProductsList().subscribe(data => {
+      this.products = data as any[];})
   }
 
   addToCart(item:Product) {

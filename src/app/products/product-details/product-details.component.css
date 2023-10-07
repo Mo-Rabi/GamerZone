@@ -9,3 +9,15 @@
     color: #3b71ca !important;
   }
 
+/* Vertical Zoom-n-pan Container */
+.img-hover-zoom--zoom-n-pan-v img {
+  transition: transform .5s ease-in-out;
+  transform: scale(1);
+  transform-origin:  center center;
+  cursor: pointer;
+}
+
+/* The Transformation */
+.img-hover-zoom--zoom-n-pan-v:hover img {
+  transform: scale(1.4)
+}

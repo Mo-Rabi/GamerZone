@@ -1,5 +1,14 @@
+<!-- <div class="loader-overlay spinner-5"></div>
+<div class="loader-overlay spinner-6"></div> -->
+<div *ngIf="loading" class="fullPageOverlay">
+  <div class="ring">
+    Loading
+    <span></span>
+  </div>
+</div>
+
 <div class="row mt-5 px-5">
   <div class="col-12 col-md-3 mb-4" *ngFor="let product of filteredProducts">
     <app-product-card [product]="product"></app-product-card>
   </div>
-</div>  
+</div>

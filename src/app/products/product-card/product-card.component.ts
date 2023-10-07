@@ -24,6 +24,8 @@ export class ProductCardComponent {
 
   cartItems: Product[] = []
   products!:any
+  watchlist!:Product[]
+  watchlistStatus:boolean= true
 
   constructor(
     private router: Router,
@@ -66,6 +68,31 @@ addToCart() {
   //   let productToAdd= this.products.find((addedProduct:Product) => addedProduct.id == id)
   //   this.cartItems.push(productToAdd)
   //   console.log(this.cartItems);
+  // }
+
+  //? Add/ remove product to/ from watchlist then add it to Local storage
+  // addToWatchlist(product){
+  //   //*if product id isn't found, add it to watchlist array
+  //  if ( !this.watchlist.includes(product.id,0)){
+  //   this.watchlist.push(product.id)
+  //   console.log(this.watchlist);
+  //   product.watchlistStatus = !product.watchlistStatus;
+
+  //   //*if product id is already inside watchlist array found, remove it
+  //   }else{
+  //     let productToRemove = this.watchlist.indexOf(product.id)
+  //     this.watchlist.splice(productToRemove,1)
+  //     console.log(this.watchlist);
+  //     product.watchlistStatus = !product.watchlistStatus;
+  //   }
+  //   localStorage.setItem("watchlist",JSON.stringify(this.watchlist))
+  // }
+
+  //  //?get watchlist items on homepage component initialization
+  // getWatchlist(){
+  //    this.watchlist= JSON.parse(localStorage.getItem('watchlist')??'[]')
+  //    console.log(this.watchlist);
+  //    console.log(this.products);
   // }
 }
 

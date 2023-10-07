@@ -8,6 +8,8 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { RouterModule } from '@angular/router';
+
 
 
 
@@ -25,7 +27,8 @@ import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
     CommonModule,
     FormsModule,
     SharedModule,
-    NgbCarouselModule
+    NgbCarouselModule,
+    RouterModule
   ],
   exports:[
     ProductCardComponent,

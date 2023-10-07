@@ -1,7 +1,7 @@
 <div class="card shadow">
   <ngb-carousel style="height: 350px; overflow: hidden">
     <ng-template ngbSlide>
-      <div class="picsum-img-wrapper img-hover-zoom--zoom-n-pan-v" >
+      <div class="picsum-img-wrapper img-hover-zoom--zoom-n-pan-v">
         <img
           [src]="product.thumbnail"
           [alt]="product.title"
@@ -41,15 +41,20 @@
     class="btn"
     (click)="redirectToProductDetails(product._id)"
   /> -->
-
-  <div class="card-img-overlay">
-    <p
-      class="card-text rounded rounded-pill d-inline-block px-2"
-      [ngStyle]="{ 'background-color': product.stock > 0 ? 'green' : 'red' }"
-    >
-      {{ product.stock > 0 ? "in stock" : "out of stock" }}
-    </p>
-  </div>
+  
+    <div class="card-img-overlay d-flex justify-content-between align-items-start">
+      <p
+        class="card-text rounded rounded-pill d-inline-block px-2"
+        [ngStyle]="{ 'background-color': product.stock > 0 ? 'green' : 'red' }"
+      >
+        {{ product.stock > 0 ? "in stock" : "out of stock" }}
+      </p>
+  
+      <a class="btn">
+        <i class="fa-solid fa-heart fa-2xl" [ngStyle]="{'color':product.watchlistStatus===false?'#ff0000':'#797a7c'}"></i>
+      </a>
+    </div>
+  
 
   <div class="card-footer border-top border-gray-300 p-3">
     <a class="btn fs-6" (click)="redirectToProductDetails(product._id)">{{

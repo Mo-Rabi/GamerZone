@@ -1,13 +1,13 @@
-<section class="h-100" style="background-color: #eee">
+<section class="h-100">
   <div class="container h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col mt-5 mb-4">
-        <div class="card">
-          <div class="card-body">
+        <div class="">
+          <div class="">
             <div class="row">
               <div class="col-lg-7">
                 <h5 class="mb-3">
-                  <a href="#!" class="text-body"
+                  <a routerLink="/" class="text-body"
                     ><i class="fas fa-long-arrow-alt-left me-2"></i>Continue
                     shopping</a
                   >
@@ -36,13 +36,12 @@
                   <h2></h2>
                   <p></p>
                 </div>
-                <div class="card mb-3" *ngFor="let item of cartItems">
-                  <div class="card-body">
+                <div class="mb-3" *ngFor="let item of cartItems">
                     <div class="d-flex justify-content-between">
                       <div class="d-flex flex-row align-items-center">
                         <div>
                           <img
-                            [src]="item.image"
+                            [src]="item.thumbnail"
                             class="img-fluid rounded-3"
                             alt="Shopping item"
                             style="width: 65px"
@@ -51,7 +50,7 @@
                         <div class="ms-3">
                           <h5>{{ item.title }}</h5>
                           <p class="small mb-0">
-                            {{ item.genre }} {{ item.released }}
+                            {{ item.brand }} {{ item.category }}
                           </p>
                         </div>
                       </div>
@@ -82,19 +81,18 @@
                             ${{(item.price * item.quantity).toFixed(2)}}
                           </h5>
                         </div>
-                        <a class="btn" style="color: #cecece"
+                        <a class="btn" 
                           ><i class="fas fa-trash-alt"></i
                         ></a>
                       </div>
                     </div>
-                  </div>
                 </div>
                 <h5>Total: ${{ calculateTotalCartPrice().toFixed(2)}}</h5>
               </div>
 
               <!--! Payment section -->
               <div class="col-lg-5">
-                <div class="card bg-primary text-white rounded-3">
+                <div class="card bg-warning text-white rounded-3">
                   <div class="card-body">
                     <div
                       class="d-flex justify-content-between align-items-center mb-4"
